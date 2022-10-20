@@ -1,0 +1,166 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+/* img {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: -1;
+} */
+
+ul {
+    list-style: none;
+    display: flex;
+    position: absolute;
+    left: 60%;
+    font-size: 20px;
+}
+
+li {
+    margin-left: 40px;
+    justify-content: space-between;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: aliceblue;
+    cursor: pointer;
+}
+.home {
+    background-color: white;
+    color: black
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    color: aliceblue;
+}
+
+.read {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    font-size: 30px;
+    color: black;
+    background-color: azure;
+    cursor: pointer;
+}
+
+.plans {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    font-size: 30px;
+    color: azure;
+    background-color: black;
+    cursor: pointer;
+}
+
+.read:hover {
+    background-color: black;
+    color: azure;
+}
+
+.plans:hover {
+    background-color: azure;
+    color: black;
+    border: none;
+}
+
+.ourPlans:hover {
+    background-color: aliceblue;
+    color: black;
+}
+
+.about:hover {
+    background-color: aliceblue;
+    color: black;
+}
+
+.contact:hover {
+    background-color: aliceblue;
+    color: black;
+}
+
+.logo {
+    color: black;
+    position: absolute;
+    top: 3%;
+    border: 3px solid black;
+    font-family: cursive;
+    letter-spacing: 2px;
+    font-weight: 60px;
+    font-size: 25px;
+}
+.destination{
+    
+margin: 0 auto;
+
+}
+.main {
+    /* animation: move 2s ease; */
+    position: absolute;
+    font-size: 30px;
+    left: 32%;
+    top: 35%;
+}
+/* @keyframes move {
+    0%{opacity: 0;
+    left: 25%;
+    }
+    
+    50%{opacity: 0.5;
+    left: 30%;
+    }
+    
+    100%{opacity: 1;
+    left: 32%;
+    }
+} */
+
+
+.mySlides {display:none;}
+
+@media (max-width:600px) {
+    img {
+        width: 200%;
+        height: 200%;
+    }
+    h1 {
+        top: 550px;
+    }
+    .read {
+        position: absolute;
+        top: 100%;
+        left: 60%;
+        font-size: 70px;
+        width: 100vw;
+    }
+    .plans {
+        position: absolute;
+        top: 120%;
+        left: 60%;
+        width: 150px;
+        font-size: 70px;
+        width: 100vw;
+        border: 10px solid azure;
+    }
+    .home {
+        height: 30px;
+    }
+    .logo {
+        font-size: 40px;
+    }
+    h1 {
+        font-size: 90px;
+        top: 20%;
+        width: 150%;
+        left: 20%;
+    }
+}

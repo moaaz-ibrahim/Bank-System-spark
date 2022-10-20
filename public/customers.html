@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Customers</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+  
+    <style>
+
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  color: #dddddd;
+}
+
+td, th {
+  border: 1px solid #1dbb71;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #000000;
+}
+body{
+ display: flex;
+    background-color: rgb(0, 0, 0);
+}
+table {
+    position: absolute;
+    top: 30%;
+   left: 10%;
+}
+.logo {
+  border: 2px solid white;
+}
+    </style>
+</head>
+<body onload="getData()">
+    <div>
+        <!-- <img src="Photos/glenn-carstens-peters-ZWD3Dx6aUJg-unsplash.jpg"> -->
+        
+            
+            <nav>
+                <a class="logo" style="color: white;"> MBA Bank</a>
+            <ul>
+                <a href="/"><li class="home">Home</li></a>
+                <a href="/customers"><li class="ourPlans">Our Customers</li></a>
+              <a href="/transfer"> <li class="about">Transfer Money</li></a>
+                <!-- <li class="contact"> Contact</li> -->
+                </ul>
+            </nav>
+            </div>
+    <table style="width:80%" class="tbl">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Balance</th>
+        </tr>
+       
+       
+      </table>
+      <script>
+        async function getData(){
+            const request = await fetch('/api/db/allCustomers');
+            const response = await request.json();
+            console.log(response);
+            var html = ``;
+            const length = response.query.length ;
+            const queries =response.query;
+            console.log(length)
+            const tbl = document.querySelector('.tbl');
+          queries.forEach(q=>{
+            html = `<tr>
+          <td>${q.username}</td>
+          <td>${q.email}</td>
+          <td>${q.balance} $</td>
+        </tr>`
+
+        tbl.innerHTML +=html
+          })
+        }
+      </script>
+</body>
+</html>

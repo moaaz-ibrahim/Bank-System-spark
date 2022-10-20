@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <title>Transfer Balance</title>
+    <link rel="stylesheet" href="style.css">
+<style>
+input[type=text] ,input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.logo{
+    color: white;
+    border: 2px solid white;
+}
+nav {
+    background-color: #f2f2f2;
+}
+
+button {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.trs {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+body{
+    background-color: black;
+  
+}
+h2{
+    color: white;
+}
+.transfer {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+</style>
+<body>
+    <div>
+
+      <nav>
+        <ul>
+            <a href="/"><li class="home">Home</li></a>
+            <a href="/customers"><li class="ourPlans">Our Customers</li></a>
+           <a href="/transfer"> <li class="about">Transfer Money</li></a>
+            <!-- <li class="contact"> Contact</li> -->
+            </ul>
+        </nav>
+           
+           
+            <a class="logo"> MBA Bank</a>
+    </div>
+
+    <div class="transfer">
+
+    
+    <h2>Transfer</h2>
+    <div class="trs">
+
+    <label for="fname">Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Name of the customer" class="name">
+
+    <label for="lname">Balance to transfer</label>
+    <input type="number" id="lname" name="lastname" placeholder="Balance to transfer" class="balance">
+
+  
+  
+    <button  class="submisdt" onclick="transfer(document.querySelector('.name').value , document.querySelector('.balance').value)">Transfer</button>
+  
+</div>
+</div>
+
+</body>
+<script>
+    async function transfer (name , balance ){
+        const data = {
+            "username" : name ,
+            "balance" : balance
+        };
+        const request = await fetch('/api/db/addBalance' , {
+            method :'POST' , 
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body :JSON.stringify(data)
+        });
+        const response = await request.json();
+        console.log(response)
+        alert(response.query.message)
+    }
+</script>
+</html>
+
+
